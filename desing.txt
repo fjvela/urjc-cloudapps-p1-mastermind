@@ -1,0 +1,59 @@
+class Mastermind{
+ play()  
+}
+
+class SecretPlayer{
+  SecretPlayer(ProposedPlayer)
+ prepare()  
+  answer()
+  write()
+}
+class ProposedPlayer{
+  attempts
+  propose()
+  getLastProposedPlayer()
+  writeAttemps()
+  writeProposedCombinations()
+  isWinner()
+  isLooser()
+  }
+
+class Combination
+enum Color
+class SecretCombination{
+  SecretCombination() // aleatorio
+  calculateResult(ProposedCombination)
+  write()
+  }
+class ProposedCombination{
+  read()
+  contains(Color, position)
+  contains(Color)
+  set(Result)
+  isWinner()
+  }
+
+class Result{
+  deads
+  damaged
+  write()
+  isWinner()
+  }
+
+
+Mastermind *--> SecretPlayer
+Mastermind *--> ProposedPlayer
+
+SecretPlayer --> ProposedPlayer
+
+ProposedPlayer o--> ProposedCombination
+SecretPlayer o--> SecretCombination
+
+SecretCombination ..> ProposedCombination
+SecretCombination ..> Result
+Combination *--> Color
+
+Combination <|-down- SecretCombination
+Combination <|-down- ProposedCombination
+
+ProposedCombination o--> Result
